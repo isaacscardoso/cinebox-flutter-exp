@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../app_routes.dart';
+import '../core/constants/app_messages.dart';
 import '../core/themes/resource.dart';
 import '../core/widgets/loader.dart';
 import '../core/widgets/snack_bar_messages.dart';
@@ -33,8 +35,8 @@ final class _SplashScreenState extends ConsumerState<SplashScreen>
       next.whenOrNull(
         data: (data) {
           final path = switch (data) {
-            true => '/home',
-            false => '/login',
+            true => AppRoutes.home.path,
+            false => AppRoutes.login.path,
             _ => '',
           };
           if (path.isNotEmpty && context.mounted) {
@@ -43,8 +45,8 @@ final class _SplashScreenState extends ConsumerState<SplashScreen>
         },
         error: (error, stackTrace) {
           if (context.mounted) {
-            showErrorSnackBar('Erro ao verificar login.');
-            _redirectTo('/login');
+            showErrorSnackBar(AppMessages.loginError);
+            _redirectTo(AppRoutes.login.path);
           }
         },
       );
