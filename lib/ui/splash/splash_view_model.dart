@@ -7,7 +7,7 @@ part 'splash_view_model.g.dart';
 final class SplashViewModel {
   final CheckUserLoggedCommand _checkUserLoggedCommand;
 
-  SplashViewModel({
+  const SplashViewModel({
     required CheckUserLoggedCommand checkUserLoggedCommand,
   }) : _checkUserLoggedCommand = checkUserLoggedCommand;
 
