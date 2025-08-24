@@ -18,6 +18,7 @@ samples, guidance on mobile development, and a full API reference.
 ## Build Runner
 
 `fvm dart run build_runner clean`
+
 `fvm dart run build_runner build --delete-conflicting-outputs`
 
 ## Assets Generator
@@ -25,4 +26,5 @@ samples, guidance on mobile development, and a full API reference.
 - [Flutter Asset Generator](https://pub.dev/packages/flutter_asset_generator)
 
 `dart pub global activate flutter_asset_generator`
+
 `fgen -o lib/ui/core/themes/resource.dart`
