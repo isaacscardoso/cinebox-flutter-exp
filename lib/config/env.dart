@@ -12,4 +12,7 @@ abstract class Env {
 
   @EnviedField(varName: 'THE_MOVIE_DB_API_KEY', obfuscate: true)
   static final String theMovieDbApiKey = _Env.theMovieDbApiKey;
+
+  @EnviedField(varName: 'TMDB_BASE_URL')
+  static const String tmdbBaseUrl = _Env.tmdbBaseUrl;
 }
