@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../config/env.dart';
+import 'interceptors/backend_auth_interceptor.dart';
 
 part 'backend_rest_client_provider.g.dart';
 
@@ -17,6 +18,7 @@ Dio backendRestClientProvider(Ref ref) {
 
   dio.options.headers['Content-Type'] = 'application/json';
   dio.interceptors.addAll([
+    BackendAuthInterceptor(ref: ref),
     LogInterceptor(
       request: true,
       requestHeader: true,
