@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/themes/resource.dart';
+import 'commands/login_with_google_command.dart';
+import 'login_view_model.dart';
 import 'widgets/sign_in_google_button.dart';
 
 final class LoginScreen extends ConsumerStatefulWidget {
@@ -35,9 +37,20 @@ final class _LoginScreenState extends ConsumerState<LoginScreen> {
                   excludeFromSemantics: true,
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                child: SignInGoogleButton(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Consumer(
+                  builder: (context, ref, child) {
+                    final state = ref.watch(loginWithGoogleCommandProvider);
+                    return SignInGoogleButton(
+                      isLoading: state.isLoading,
+                      onPressed: () {
+                        final viewModel = ref.read(loginViewModelProvider);
+                        viewModel.googleLogin();
+                      },
+                    );
+                  },
+                ),
               ),
             ],
           ),
