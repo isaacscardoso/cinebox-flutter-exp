@@ -5,6 +5,7 @@ import 'local_storage_service.dart';
 
 final class LocalStorageServiceImpl implements LocalStorageService {
   final FlutterSecureStorage _flutterSecureStorage;
+  static const localStorageTokenId = 'id_token';
 
   const LocalStorageServiceImpl({
     required FlutterSecureStorage flutterSecureStorage,
@@ -12,22 +13,22 @@ final class LocalStorageServiceImpl implements LocalStorageService {
 
   @override
   Future<Result<String>> getIdToken() async {
-    final idToken = await _flutterSecureStorage.read(key: 'id_token');
+    final idToken = await _flutterSecureStorage.read(key: localStorageTokenId);
     if (idToken == null) {
-      return Failure(Exception('Token not found'));
+      return Failure(Exception('Token not found!'));
     }
     return Success(idToken);
   }
 
   @override
   Future<Result<Unit>> saveIdToken(String idToken) async {
-    await _flutterSecureStorage.write(key: 'id_token', value: idToken);
+    await _flutterSecureStorage.write(key: localStorageTokenId, value: idToken);
     return successOfUnit();
   }
 
   @override
   Future<Result<Unit>> removeIdToken() async {
-    await _flutterSecureStorage.delete(key: 'id_token');
+    await _flutterSecureStorage.delete(key: localStorageTokenId);
     return successOfUnit();
   }
 }
