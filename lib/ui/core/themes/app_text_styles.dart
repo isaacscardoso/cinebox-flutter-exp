@@ -43,6 +43,11 @@ abstract final class AppTextStyles {
     color: AppColors.lightGrey,
   );
 
+  static const darkGreyRegular = TextStyle(
+    fontSize: 14,
+    color: AppColors.darkGrey,
+  );
+
   static const lightGreySmall = TextStyle(
     fontSize: 12,
     color: AppColors.lightGrey,
