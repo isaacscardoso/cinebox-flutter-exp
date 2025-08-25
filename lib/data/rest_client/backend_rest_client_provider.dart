@@ -7,7 +7,7 @@ import 'interceptors/backend_auth_interceptor.dart';
 part 'backend_rest_client_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-Dio backendRestClientProvider(Ref ref) {
+Dio backendRestClient(Ref ref) {
   final dio = Dio(
     BaseOptions(
       baseUrl: Env.backendBaseUrl,
