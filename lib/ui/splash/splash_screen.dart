@@ -45,7 +45,7 @@ final class _SplashScreenState extends ConsumerState<SplashScreen>
         },
         error: (error, stackTrace) {
           if (context.mounted) {
-            showErrorSnackBar(AppMessages.loginError);
+            showErrorSnackBar(AppMessages.verifyLoginError);
             _redirectTo(AppRoutes.login.path);
           }
         },
