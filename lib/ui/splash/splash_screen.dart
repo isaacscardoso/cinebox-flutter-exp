@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/app_routes.dart';
-import '../core/constants/app_messages.dart';
+import '../../core/app/app_messages.dart';
+import '../../core/app/app_routes.dart';
 import '../core/themes/resource.dart';
 import '../core/widgets/loader.dart';
 import '../core/widgets/snack_bar_messages.dart';

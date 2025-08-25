@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'core/app_routes.dart';
+import 'core/app/app_routes.dart';
 import 'ui/core/themes/app_theme.dart';
 import 'ui/login/login_screen.dart';
 import 'ui/splash/splash_screen.dart';
