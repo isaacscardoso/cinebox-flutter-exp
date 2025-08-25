@@ -9,10 +9,10 @@ final class Success<T> extends Result<T> {
 }
 
 final class Failure<T> extends Result<T> {
-  final Exception exception;
+  final Exception error;
   final Object? value;
 
-  Failure(this.exception, [this.value]);
+  Failure(this.error, [this.value]);
 }
 
 Result<Unit> successOfUnit() => Success(Unit());
