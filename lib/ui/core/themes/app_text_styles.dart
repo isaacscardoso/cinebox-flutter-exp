@@ -53,6 +53,17 @@ abstract final class AppTextStyles {
     color: AppColors.lightGrey,
   );
 
+  static const selectedTextSmall = TextStyle(
+    fontSize: 12,
+    color: AppColors.red,
+  );
+
+  static const unselectedTextSmall = TextStyle(
+    fontSize: 10,
+    color: AppColors.lightGrey,
+    fontWeight: FontWeight.w400,
+  );
+
   static const errorText = TextStyle(
     color: AppColors.red,
   );
