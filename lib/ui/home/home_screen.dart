@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../movies/movies_screen.dart';
 import 'widget/home_bottom_nav_bar.dart';
 
 final class HomeScreen extends ConsumerStatefulWidget {
@@ -21,7 +22,7 @@ final class _HomeScreenState extends ConsumerState<HomeScreen> {
           opacity: animation,
           child: child,
         ),
-        child: Container(color: Colors.red),
+        child: const MoviesScreen(),
       ),
       bottomNavigationBar: const HomeBottomNavBar(),
     );
