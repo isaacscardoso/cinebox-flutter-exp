@@ -8,8 +8,19 @@ abstract final class AppTextStyles {
     fontWeight: FontWeight.w600,
   );
 
-  static const subtitleSmall = TextStyle(
+  static const titleRegular = TextStyle(
     fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+
+  static const subtitleRegular = TextStyle(
+    fontSize: 14,
+    color: AppColors.lightGrey,
+  );
+
+  static const subtitleSmall = TextStyle(
+    fontSize: 11,
+    fontWeight: FontWeight.w500,
     color: AppColors.lightGrey,
   );
 
