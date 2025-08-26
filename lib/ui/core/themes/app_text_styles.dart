@@ -67,4 +67,12 @@ abstract final class AppTextStyles {
   static const errorText = TextStyle(
     color: AppColors.red,
   );
+
+  static final formFieldLabel = TextStyle(
+    color: Colors.grey[600],
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+  );
+
+  static final formFieldHintText = formFieldLabel;
 }
