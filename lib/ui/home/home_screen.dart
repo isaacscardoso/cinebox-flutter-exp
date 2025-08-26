@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../movies/movies_screen.dart';
-import 'widget/home_bottom_nav_bar.dart';
+import 'widgets/home_bottom_nav_bar.dart';
 
 final class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
