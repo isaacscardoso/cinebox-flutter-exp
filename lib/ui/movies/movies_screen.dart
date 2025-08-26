@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'widgets/movies_app_bar.dart';
+import 'widgets/movies_by_category.dart';
+import 'widgets/movies_genres_box.dart';
 
 final class MoviesScreen extends ConsumerStatefulWidget {
   const MoviesScreen({super.key});
@@ -16,6 +18,15 @@ final class _MoviesScreenState extends ConsumerState<MoviesScreen> {
     return const CustomScrollView(
       slivers: <Widget>[
         MoviesAppBar(),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.only(top: 22),
+            child: MoviesGenresBox(),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: MoviesByCategory(),
+        ),
       ],
     );
   }
