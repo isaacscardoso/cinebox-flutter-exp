@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'core/app/app_routes.dart';
 import 'ui/core/themes/app_theme.dart';
+import 'ui/home/home_screen.dart';
 import 'ui/login/login_screen.dart';
 import 'ui/splash/splash_screen.dart';
 
@@ -16,7 +17,7 @@ final class CineboxMainApp extends StatelessWidget {
       routes: {
         AppRoutes.splash.path: (_) => const SplashScreen(),
         AppRoutes.login.path: (_) => const LoginScreen(),
-        // AppRoute.home.path: (_) => const HomeScreen(),
+        AppRoutes.home.path: (_) => const HomeScreen(),
       },
     );
   }
