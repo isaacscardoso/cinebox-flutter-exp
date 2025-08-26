@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/app/app_messages.dart';
+import '../../core/app/app_routes.dart';
 import '../core/themes/resource.dart';
+import '../core/widgets/snack_bar_messages.dart';
 import 'commands/login_with_google_command.dart';
 import 'login_view_model.dart';
 import 'widgets/sign_in_google_button.dart';
@@ -13,9 +16,20 @@ final class LoginScreen extends ConsumerStatefulWidget {
   ConsumerState createState() => _LoginScreenState();
 }
 
-final class _LoginScreenState extends ConsumerState<LoginScreen> {
+final class _LoginScreenState extends ConsumerState<LoginScreen>
+    with SnackBarMessages {
   @override
   Widget build(BuildContext context) {
+    ref.listen(loginWithGoogleCommandProvider, (_, state) {
+      state.whenOrNull(
+        data: (_) {
+          Navigator.pushReplacementNamed(context, AppRoutes.home.path);
+        },
+        error: (error, stackTrace) {
+          showErrorSnackBar(AppMessages.loginError);
+        },
+      );
+    });
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
