@@ -5,8 +5,13 @@ import '../../core/widgets/movie_card.dart';
 
 final class MoviesBox extends StatelessWidget {
   final String title;
+  final bool isVerticalScroll;
 
-  const MoviesBox({super.key, required this.title});
+  const MoviesBox({
+    super.key,
+    required this.title,
+    this.isVerticalScroll = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,20 +28,36 @@ final class MoviesBox extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          width: MediaQuery.sizeOf(context).width,
-          height: 253,
-          child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            scrollDirection: Axis.horizontal,
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return const Padding(
-                padding: EdgeInsets.only(right: 16),
-                child: MovieCard(),
-              );
-            },
+        Visibility(
+          visible: !isVerticalScroll,
+          replacement: Center(
+            child: Wrap(
+              spacing: 40,
+              runSpacing: 20,
+              runAlignment: WrapAlignment.center,
+              children: <Widget>[
+                ...List.generate(
+                  10,
+                  (index) => const MovieCard(),
+                ),
+              ],
+            ),
+          ),
+          child: SizedBox(
+            width: MediaQuery.sizeOf(context).width,
+            height: 253,
+            child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return const Padding(
+                  padding: EdgeInsets.only(right: 16),
+                  child: MovieCard(),
+                );
+              },
+            ),
           ),
         ),
       ],
